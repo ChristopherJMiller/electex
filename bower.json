@@ -1,0 +1,20 @@
+{
+  "name": "electex",
+  "description": "Electron powered latex editor",
+  "main": "main.js",
+  "authors": [
+    "Mr-Froger"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/Mr-Froger/electex",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.5"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "electex",
+  "productName": "Electex",
+  "version": "0.1.0",
+  "description": "Electron powered latex editor",
+  "license": "GPL-3.0",
+  "main": "main.js",
+  "repository": "Mr-Froger/electex",
+  "author": {
+    "name": "Mr-Froger"
+  },
+  "scripts": {
+    "test": "xo",
+    "start": "electron main.js"
+  },
+  "devDependencies": {
+    "electron": "^1.4.3",
+    "electron-packager": "^8.3.0",
+    "xo": "^0.17.1",
+    "bower": "^1.8.0"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "camelcase": 0
+    },
+    "envs": [
+      "node",
+      "browser",
+      "jquery"
+    ]
+  }
+}

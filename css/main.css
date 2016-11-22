@@ -1,0 +1,17 @@
+/* Layout */
+body {
+  background-color: #EDEDED;
+}
+
+.navbar {
+  background-color: #3C3439;
+}
+
+.tree-bar {
+  background-color: #746F72;
+  min-height: 100vh;
+}
+
+.icon-navbar {
+  color: white;
+}

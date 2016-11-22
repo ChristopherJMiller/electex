@@ -26,7 +26,7 @@
     "esnext": true,
     "space": true,
     "rules": {
-      "camelcase": 0
+      "max-depth": 0
     },
     "envs": [
       "node",

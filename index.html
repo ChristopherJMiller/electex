@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Electex</title>
 
     <link href="bower_components/tether/dist/css/tether.min.css" rel="stylesheet">
-    <link href="bower_components/bootstrap/dist/css/bootstrap-flex.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -19,18 +21,22 @@
   </head>
   <body>
     <nav class="navbar navbar-full navbar-dark">
-      <a class="nav-item nav-link" href="#" id="open"><i class="fa fa-folder-open fa-2x icon-navbar" aria-hidden="true"></i></a>
+      <a class="nav-item nav-link" href="#" id="new"><i class="fa fa-folder-open fa-2x icon-navbar" aria-hidden="true"></i></a>
+      <a class="nav-item nav-link" href="#" id="open"><i class="fa fa-file fa-2x icon-navbar" aria-hidden="true"></i></a>
     </nav>
-    <div class="row">
-      <div class="col-md-2 tree-bar">
+    <div class="container-fluid">
+      <div class="row h-100">
+        <div class="col-md-2 hidden-sm-down tree-bar h-100">
 
-      </div>
-      <div class="col-md-5">
+        </div>
+        <div class="col-md-5 col-sm-6 editing-window h-100" id="editingWindow">
 
-      </div>
-      <div class="col-md-5">
+        </div>
+        <div class="col-md-5 col-sm-6 viewing-window h-100">
 
+        </div>
       </div>
     </div>
+    <div hidden class="editor-row" id="baseEditorRow"></div>
   </body>
 </html>

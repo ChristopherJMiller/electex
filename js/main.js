@@ -1,3 +1,5 @@
+const {ipcRenderer} = require('electron')
+
 function renderEditor(array) {
   $('#editingWindow').empty();
   for (var row in array) {
@@ -11,7 +13,7 @@ function renderEditor(array) {
 
 $(document).ready(() => {
   var fs = require('graceful-fs');
-  var gulp = require('gulp');
+  PDFJS.workerSrc = 'bower_components/pdfjs-dist/build/pdf.worker.js';
 
   var currentLineNum = 1;
   var editorText = [];
@@ -23,6 +25,35 @@ $(document).ready(() => {
       texToCompile += editorText[row];
     }
     require("latex")([texToCompile]).pipe(fs.createWriteStream("test.pdf"));
+    var url = 'file://' + __dirname + '/test.pdf';
+    PDFJS.getDocument(url).then((pdf) => {
+      //
+      // Fetch the first page
+      //
+      pdf.getPage(1).then((page) => {
+        var proportion = $('#viewingWindow').width() / page.getViewport(1).width;
+        var viewport = page.getViewport(proportion);
+        console.log(viewport);
+
+
+        //
+        // Prepare canvas using PDF page dimensions
+        //
+        var canvas = document.getElementById('pdfViewer');
+        var context = canvas.getContext('2d');
+        canvas.height = $('#viewingWindow').height();
+        canvas.width = $('#viewingWindow').width();
+
+        //
+        // Render PDF page into canvas context
+        //
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        page.render(renderContext);
+      });
+    });
   });
 
   $(document).keyup((event) => {

@@ -20,8 +20,7 @@
     "bower": "^1.8.0",
     "graceful-fs": "^4.1.10",
     "latex": "^0.0.1",
-    "gulp": "^3.9.1",
-    "gulp-latex": "^1.0.1"
+    "electron-pdf-window": "^1.0.6"
   },
   "xo": {
     "esnext": true,

@@ -1,6 +1,11 @@
 /* Layout */
 body {
   background-color: #EDEDED;
+  height: 100vh;
+}
+
+.container-fluid {
+  height: calc(100% - 34px);
 }
 
 .navbar {
@@ -9,9 +14,13 @@ body {
 
 .tree-bar {
   background-color: #746F72;
-  min-height: 100vh;
 }
 
 .icon-navbar {
   color: white;
+}
+
+.editing-window {
+  border-right-style: solid;
+  border-right-width: medium;
 }

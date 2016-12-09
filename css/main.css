@@ -23,4 +23,5 @@ body {
 .editing-window {
   border-right-style: solid;
   border-right-width: medium;
+  background-color: white;
 }

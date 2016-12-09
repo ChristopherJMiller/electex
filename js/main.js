@@ -74,6 +74,9 @@ $(document).ready(() => {
       case 13:
         currentLineNum++;
         break;
+      case 16:
+      // Catch for Shift, boolean attached to event handles it
+        break;
       // Backspace
       case 8:
         if (editorText[currentLineNum] === '') {
@@ -87,7 +90,7 @@ $(document).ready(() => {
         if (editorText[currentLineNum] === undefined) {
           editorText[currentLineNum] = '';
         }
-        if (functionKey !== 0) {
+        if (functionKey == 0) {
           switch (event.which) {
             case 86: {
               const pasteData = clipboard.readText().split('\n');
@@ -100,7 +103,11 @@ $(document).ready(() => {
               break;
             }
             default:
-              editorText[currentLineNum] += event.key;
+              if (event.shiftKey) {
+                editorText[currentLineNum] += event.key.toUpperCase();
+              } else {
+                editorText[currentLineNum] += event.key;
+              }
           }
         }
         break;

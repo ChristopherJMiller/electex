@@ -9,7 +9,9 @@ function renderEditor(array) {
     if (array[row] !== null) {
       const rowObj = $('#baseEditorRow').clone();
       rowObj.attr('id', 'row-' + row);
-      rowObj.text(array[row]);
+      rowObj.children('span').text(row);
+      console.log(rowObj);
+      rowObj.append(array[row]);
       rowObj.removeAttr('hidden');
       rowObj.appendTo('#editingWindow');
     }

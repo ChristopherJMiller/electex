@@ -20,6 +20,11 @@ body {
   color: white;
 }
 
+.line-number {
+  border-right-style: solid;
+  border-right-width: thin;
+}
+
 .editing-window {
   border-right-style: solid;
   border-right-width: medium;

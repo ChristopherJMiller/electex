@@ -21,12 +21,27 @@ body {
 }
 
 .line-number {
-  border-right-style: solid;
-  border-right-width: thin;
+  margin-bottom: 0px;
+  text-align: right;
+  -webkit-user-select: none;
+}
+
+.line-number-bar {
+  background-color: #EEE;
+
+  max-width: 1em;
+  margin-right: 1em;
+  height: 100%;
+  float: left;
+}
+
+.editor-row {
 }
 
 .editing-window {
   border-right-style: solid;
   border-right-width: medium;
   background-color: white;
+  overflow-y: scroll;
+  padding: 0px;
 }

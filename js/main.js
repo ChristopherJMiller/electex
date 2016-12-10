@@ -5,14 +5,24 @@ const path = require('path');
 
 function renderEditor(array) {
   $('#editingWindow').empty();
+
+  const lineNumObj = $('#lineNumberBase').clone();
+  lineNumObj.attr('id', 'lineNumber');
+  lineNumObj.removeAttr('hidden');
+  lineNumObj.appendTo('#editingWindow');
   for (const row in array) {
     if (array[row] !== null) {
       const rowObj = $('#baseEditorRow').clone();
       rowObj.attr('id', 'row-' + row);
-      rowObj.children('span').text(row);
-      console.log(rowObj);
-      rowObj.append(array[row]);
+      rowObj.text(array[row]);
+
+      const lineNumRow = $('#lineNumberSpan').clone();
+      lineNumRow.attr('id', 'line-' + row);
+      lineNumRow.text(row);
+
+      lineNumRow.removeAttr('hidden');
       rowObj.removeAttr('hidden');
+      lineNumRow.appendTo('#lineNumber');
       rowObj.appendTo('#editingWindow');
     }
   }
@@ -82,7 +92,10 @@ $(document).ready(() => {
       // Backspace
       case 8:
         if (editorText[currentLineNum] === '') {
-          currentLineNum--;
+          delete editorText[currentLineNum];
+          if (currentLineNum > 1) {
+            currentLineNum--;
+          }
         } else {
           editorText[currentLineNum] = editorText[currentLineNum].slice(0, -1);
           renderEditor(editorText);
